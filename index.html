@@ -481,8 +481,11 @@
                 const h2s = extractH2s(markdown);
                 renderTOC(h2s);
 
+                // Remove H1 heading from content (it's shown in left panel)
+                const contentWithoutH1 = markdown.replace(/^#\s+.+$/m, '').trim();
+
                 // Replace mermaid blocks
-                const processed = markdown.replace(/```mermaid\s*([\s\S]*?)```/g, (_, code) => {
+                const processed = contentWithoutH1.replace(/```mermaid\s*([\s\S]*?)```/g, (_, code) => {
                     const id = `mermaid-${diagramId++}`;
                     return `<div class="mermaid" id="${id}">${code.trim()}</div>`;
                 });
