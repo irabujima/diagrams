@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mermaid Diagram Preview</title>
+    <!-- FontAwesome 6 (required for fa: icons in Mermaid) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            padding: 2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #00d9ff;
+            margin-bottom: 2rem;
+        }
+        .mermaid {
+            background: #16213e;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <h1>Mermaid Diagram with FontAwesome Icons</h1>
+    
+    <div class="mermaid">
+graph TD;
+    A[fa:fa-user User] --> B[fa:fa-cog Settings];
+    B --> C[fa:fa-cog Settings];
+    C --> D[fa:fa-cog Settings];
+    </div>
+
+    <!-- Mermaid.js -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'dark',
+            securityLevel: 'loose', // Required for FontAwesome icons
+            flowchart: {
+                htmlLabels: true // Required for FontAwesome icons
+            }
+        });
+    </script>
+</body>
+</html>
