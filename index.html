@@ -419,8 +419,8 @@
 
         // Load file list
         async function loadFileList() {
-            // Try to fetch files from a manifest, fallback to known files
-            const knownFiles = ['docs/mermaid.md'];
+            // List of files in docs folder (sorted by filename)
+            const knownFiles = ['docs/1.mermaid.md', 'docs/2.test.md', 'docs/mermaid.md'];
             files = [];
 
             for (const path of knownFiles) {
